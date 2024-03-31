@@ -69,7 +69,7 @@ fi
 
 if [[ "$FILE" == "AUTO" ]]
 then
-    FILE="$(dirname $(mktemp))/OPENAI_SPEECH_$(echo -n "$TEXT" | md5sum - | cut -d" " -f1).mp3"
+    FILE="$(dirname $(mktemp))/OPENAI_SPEECH_$(echo -n "$TEXT $VOICE $SPEED" | md5sum - | cut -d" " -f1).mp3"
 fi
 
 if [[ ! -e "$FILE" ]]

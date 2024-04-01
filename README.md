@@ -16,6 +16,15 @@ Simple curl script to play aloud what you type, useful if your voice is suddenly
 * `chmod +x speech.sh`
 * Optional: Put your OpenaiAPI key in a file called API_KEY in the same dir as this one or supply it as an argument.
 * `./speech.sh --voice "alloy" --text "This is a test" --speed 1.1 --api_key ****...***`
+* If you want to add an `i3wm` binding: `bindsym $mod+p exec /YOUR/PATH/speech_launcher.sh, mode "default"` with speech_launcher.sh containing this:
+
+```
+#!/usr/bin/zsh
+OUT=$(i3-input)
+TEXT=$(echo $OUT | tail -n 1 | cut -d'=' -f 2 | cut -c2-)
+API_KEY=$(cat /YOUR/PATH/speech.sh/API_KEY)
+/YOUR/PATH/speech.sh/speech.sh --text "$TEXT" --api_key $API_KEY
+```
 
 # Why ?
 [Ospeak](https://github.com/simonw/ospeak) was too slow because of the python overhead

@@ -2,7 +2,7 @@
 
 
 SPEED="1.0"
-VOICE="alloy"
+VOICE="onyx"
 API_KEY="NONE"
 FILE="AUTO"
 VERBOSE="F"

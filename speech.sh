@@ -22,8 +22,8 @@ log2() {
     fi
 }
 
-for arg in "$@"; do
-    case "$arg" in
+while (( $# > 0 )); do
+    case "$1" in
         -v | --voice)
             VOICE="$2"
             shift 2
@@ -48,6 +48,11 @@ for arg in "$@"; do
             VERBOSE="T"
             shift 2
             ;;
+        *)
+            echo "Invalid option(s): $@"
+            exit 1
+            ;;
+
     esac
 done
 
